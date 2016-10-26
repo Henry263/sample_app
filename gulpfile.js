@@ -7,7 +7,7 @@ var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 
-// Adding comment
+// Adding comment from Harshil
 
 var paths = {
   sass: ['./scss/**/*.scss']
