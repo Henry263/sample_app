@@ -3,6 +3,7 @@ var gutil = require('gulp-util');
 var bower = require('bower');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
+var uglify = require('gulp-uglify');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
@@ -12,6 +13,18 @@ var paths = {
 };
 
 gulp.task('default', ['sass']);
+
+
+//js minify
+
+gulp.task('scripts', function() {
+  gulp.src(['./www/js/app.js', './www/js/controller.js', './www/js/homepage_controller.js' ,'./www/js/services.js'])
+      .pipe(concat('all_app.js'))
+      .pipe(uglify())
+      .pipe(gulp.dest('./www/js/'))
+});
+
+
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
